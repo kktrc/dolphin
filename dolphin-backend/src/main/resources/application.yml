@@ -4,8 +4,10 @@ spring:
   application:
     name: dolphin-backend
   datasource:
-    url: jdbc:mysql://localhost:3306/test1
+    url: jdbc:mysql://localhost:3306/doplin
     username: root
-    password: 1111
+    password: 19930205
     driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:sqlmap/*.xml
 
