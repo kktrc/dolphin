@@ -1,11 +1,16 @@
 package com.doplin.app.controller;
 
+import com.doplin.app.context.UserContextHolder;
 import com.doplin.app.domin.UserPO;
 import com.doplin.app.dto.AjaxResult;
 import com.doplin.app.dto.LoginDto;
+import com.doplin.app.dto.UserDto;
 import com.doplin.app.service.UserService;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +41,19 @@ public class LoginController extends BaseController {
         cookie.setPath("/");
         cookie.setMaxAge(3600 * 24);
         response.addCookie(cookie);
-        return AjaxResult.success("OK");
+        return AjaxResult.success(user);
+    }
+
+    /**
+     * 返回user
+     * @return
+     */
+    @GetMapping("/user/info")
+    public AjaxResult userInfo() {
+        UserPO userPO = UserContextHolder.getUser();
+        UserDto userDto = new UserDto();
+        BeanUtils.copyProperties(userPO, userDto);
+        userDto.setRoles(Lists.newArrayList("admin"));
+        return AjaxResult.success(userDto);
     }
 }
