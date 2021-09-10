@@ -1,13 +1,22 @@
 server:
-  port: 8099
+  port: 8088
 spring:
   application:
-    name: dolphin-backend
+    name: dolphin
   datasource:
-    url: jdbc:mysql://localhost:3306/doplin
+    url: jdbc:mysql://123.56.249.169:3306/dolphin
     username: root
-    password: 19930205
-    driver-class-name: com.mysql.jdbc.Driver
+    password: Hbg!wZGeZ942T!X
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    cache: false
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
 mybatis:
   mapper-locations: classpath:sqlmap/*.xml
-
+  configuration:
+    map-underscore-to-camel-case: true
