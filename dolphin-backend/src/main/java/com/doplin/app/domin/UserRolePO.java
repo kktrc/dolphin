@@ -5,16 +5,20 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-/**
- * @author : moshengeli
- * @date : 2021/9/10
- */
+import java.util.Date;
+
 @Data
-@TableName("role")
-public class RolePO {
+@TableName("user_role")
+public class UserRolePO {
 
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    private String name;
+    private Long userId;
+
+    private Long roleId;
+
+    private Date createTime;
+
+    private Date updateTime;
 }
