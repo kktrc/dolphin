@@ -2,6 +2,7 @@ package com.doplin.app.service.impl;
 
 import com.doplin.app.domin.UserPO;
 import com.doplin.app.exception.LoginException;
+import com.doplin.app.form.UserAddForm;
 import com.doplin.app.mapper.UserMapper;
 import com.doplin.app.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.UUID;
 
 /**
  * @author : moshengeli
@@ -45,5 +49,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserPO getByToken(String token) {
         return userMapper.selectByToken(token);
+    }
+
+    @Override
+    public void addUser(UserAddForm form) {
+        UserPO userPO = new UserPO();
+        userPO.setName(form.getName());
+        userPO.setLoginId(form.getLoginId());
+        userPO.setGender(form.getGender());
+        userPO.setPassword(DigestUtils.md5Hex(form.getPassword()));
+        userPO.setToken(UUID.randomUUID().toString().replaceAll("-", ""));
+        userPO.setCreateTime(new Date());
+        userPO.setUpdateTime(new Date());
+        userMapper.insert(userPO);
     }
 }
