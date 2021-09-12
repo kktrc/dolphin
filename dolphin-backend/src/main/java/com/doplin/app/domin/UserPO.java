@@ -18,6 +18,8 @@ public class UserPO {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    private Long tenantId;
+
     private String token;
 
     private String loginId;
