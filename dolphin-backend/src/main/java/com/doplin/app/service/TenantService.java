@@ -1,7 +1,10 @@
 package com.doplin.app.service;
 
+import com.doplin.app.domin.TenantPO;
 import com.doplin.app.form.TenantAddForm;
 import com.doplin.app.form.TenantEditForm;
+
+import java.util.List;
 
 public interface TenantService {
 
@@ -17,4 +20,11 @@ public interface TenantService {
      * @param form
      */
     void editTenant(TenantEditForm form);
+
+
+    /**
+     * 查询
+     * @return
+     */
+    List<TenantPO> selectAll();
 }

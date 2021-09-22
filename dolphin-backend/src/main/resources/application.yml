@@ -16,6 +16,9 @@ spring:
     encoding: UTF-8
     content-type: text/html
     mode: HTML5
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 mybatis:
   mapper-locations: classpath:sqlmap/*.xml
   configuration:

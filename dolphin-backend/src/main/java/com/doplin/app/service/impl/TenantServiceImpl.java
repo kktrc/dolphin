@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -31,5 +32,10 @@ public class TenantServiceImpl implements TenantService {
     public void editTenant(TenantEditForm form) {
 
 
+    }
+
+    @Override
+    public List<TenantPO> selectAll() {
+        return tenantMapper.selectAll();
     }
 }

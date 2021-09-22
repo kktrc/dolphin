@@ -16,5 +16,7 @@ public class RolePO {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    private Long tenantId;
+
     private String name;
 }

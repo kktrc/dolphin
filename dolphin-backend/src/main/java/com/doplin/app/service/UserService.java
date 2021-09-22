@@ -13,7 +13,11 @@ public interface UserService {
     UserPO login(String loginId, String password);
 
 
-
+    /**
+     * 获取用户
+     * @param token
+     * @return
+     */
     UserPO getByToken(String token);
 
     /**
