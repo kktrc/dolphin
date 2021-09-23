@@ -45,6 +45,20 @@ public class LoginController extends BaseController {
     }
 
     /**
+     * 登录
+     * @param loginDto
+     * @return
+     */
+    @PostMapping("/logout")
+    public AjaxResult logout(HttpServletResponse response) {
+        Cookie cookie = new Cookie("token", "");
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return AjaxResult.success("OK");
+    }
+
+    /**
      * 返回user
      * @return
      */
