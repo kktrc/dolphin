@@ -8,14 +8,6 @@ spring:
     username: root
     password: Hbg!wZGeZ942T!X
     driver-class-name: com.mysql.cj.jdbc.Driver
-  thymeleaf:
-    prefix: classpath:/templates/
-    check-template-location: true
-    cache: false
-    suffix: .html
-    encoding: UTF-8
-    content-type: text/html
-    mode: HTML5
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

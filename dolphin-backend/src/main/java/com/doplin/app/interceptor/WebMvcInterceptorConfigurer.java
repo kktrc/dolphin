@@ -16,7 +16,7 @@ public class WebMvcInterceptorConfigurer implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(getLoginInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/api/login", "/health");
+                .excludePathPatterns("/api/login", "/health", "/index", "/css/**", "/js/**", "/fonts/**", "/img/**", "/error", "/static/**");
     }
 
     @Bean
